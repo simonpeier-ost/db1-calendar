@@ -1,0 +1,57 @@
+@startuml
+hide empty methods
+
+skinparam nodesep 100
+skinparam ranksep 40
+
+class Calendar {
+  name: string
+  description: string
+}
+
+class Meeting {
+  name: string
+  date: datetime
+  location: string
+  duration: number
+}
+
+class Person {
+  firstname: string
+  lastname: string
+}
+
+class Participant {
+  mail: string
+  birthday: datetime
+  / age: number
+}
+
+class Task {
+  finished: boolean
+  description: string
+}
+
+Calendar "1..*" --- "*" Meeting : contains >
+Meeting "*" --- "1..*" Participant : attends <
+note left: Can only participate in\n one meeting at a time
+Meeting "*" --- "1" Participant : schedules <
+Meeting "1" --- "*" Task : has >
+Person <|--- Participant : ""
+note left on link #fa5252: disjoint, complete
+
+/'
+class Organisator {
+
+}
+
+class Subtask {
+  
+}
+
+Person <|--- Organisator : ""
+note left on link #fa5252: disjoint, complete
+Meeting "1..*" --- "1" Organisator : creates <
+'/
+
+@enduml
