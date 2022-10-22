@@ -11,6 +11,7 @@ abstract Entry {
 
 class Meeting {
   name: string
+  description: string
   date: datetime
   location: string
   duration: number
@@ -18,8 +19,9 @@ class Meeting {
 note top: duration in minutes
 
 class Task {
-  finished: boolean
+  name: string
   description: string
+  finished: boolean
 }
 
 class Calendar {
@@ -30,8 +32,8 @@ class Calendar {
 class Person {
   firstname: string
   lastname: string
-  mail: string
-  birthday: date
+  email: string
+  birthdate: date
   / age: number
 }
 
