@@ -1,6 +1,10 @@
 ALTER TABLE person_calendar
-ADD CONSTRAINT fk_pers_cal
+ADD CONSTRAINT fk_pers_cal_pers
     FOREIGN KEY (person) REFERENCES person (id)
+;
+
+ALTER TABLE person_calendar
+ADD CONSTRAINT fk_pers_cal_cal
     FOREIGN KEY (calendar) REFERENCES calendar (id)
 ;
 
