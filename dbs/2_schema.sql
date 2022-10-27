@@ -25,19 +25,19 @@ CREATE TABLE calendar (
 CREATE TABLE meeting (
   id INTEGER PRIMARY KEY,
   name VARCHAR(64) NOT NULL,
-  start TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  start TIMESTAMP NOT NULL,
   duration INTERVAL NOT NULL,
   description VARCHAR(254),
   location VARCHAR(54),
-  calendar INTEGER
+  calendar INTEGER NOT NULL
 );
 
 CREATE TABLE task (
   id INTEGER PRIMARY KEY,
   name VARCHAR(64) NOT NULL,
-  due TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  due TIMESTAMP NOT NULL,
   finished BOOLEAN NOT NULL,
   description VARCHAR(254),
-  calendar INTEGER,
+  calendar INTEGER NOT NULL,
   meeting INTEGER
 );

@@ -23,5 +23,4 @@ ADD CONSTRAINT fk_task_cal
 ALTER TABLE task
 ADD CONSTRAINT fk_task_meet
     FOREIGN KEY (meeting) REFERENCES meeting (id)
-    ON DELETE CASCADE
 ;

@@ -35,3 +35,12 @@ INSERT INTO meeting values
 (5, 'Spiel gegen Bern', '2022-11-19 09:00:00', '05:00:00', 'Weitere infos siehe Gruppenchat.', 'Oberlunkhofen', 3),
 (6, 'Jodel Training', '2022-11-15 14:00:00', '01:00:00', NULL, 'Kaserne Bern', 5),
 (7, 'Rogers Geburtstag', '2022-12-12 00:00:00', '24:00:00', 'Geboren 1999', NULL, 7);
+
+INSERT INTO task values
+(1, 'Getränke entgegennehmen', '2022-05-16 17:30:00', true, 'Hofweiler wird bei der Schranke warten.', 6, 1),
+(2, 'Verkleidung kaufen', '2022-10-16 15:30:00', false, NULL, 2, 2),
+(3, 'Werbung live schalten', '2022-08-13 11:30:00', false, NULL, 3, NULL),
+(4, 'Hausaufgaben dieser Woche machen', '2022-10-18 15:30:00', false, NULL, 1, NULL),
+(5, 'Probeprüfung lösen', '2022-12-21 15:30:00', false, NULL, 1, NULL),
+(6, 'Beim Beizli anrufen', '2022-07-03 13:30:00', true, NULL, 5, NULL),
+(7, 'Vorlesung besuchen', '2022-09-11 19:30:00', false, NULL, 2, NULL);
