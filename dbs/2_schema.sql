@@ -1,5 +1,5 @@
 /*
- * Tabellen erzeugen
+ * Authors: Oliver Dietsche, Simon Peier
  */
 
 CREATE TABLE person (

@@ -1,3 +1,7 @@
+/*
+ * Authors: Oliver Dietsche, Simon Peier
+ */
+
 ALTER TABLE person_calendar
 ADD CONSTRAINT fk_pers_cal_pers
     FOREIGN KEY (person) REFERENCES person (id)

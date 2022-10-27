@@ -1,3 +1,7 @@
+/*
+ * Authors: Oliver Dietsche, Simon Peier
+ */
+
 INSERT INTO person values
 (1, 'Bret', 'Craig', 'bret.craig@ost.ch', to_date('2000-02-02', 'YYYY-MM-DD')),
 (2, 'Talha', 'Schwartz', 'talha.schwartz@ost.ch', NULL),

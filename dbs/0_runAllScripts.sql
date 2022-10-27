@@ -1,3 +1,7 @@
+/*
+ * Authors: Oliver Dietsche, Simon Peier
+ */
+
 \echo \conninfo
 \echo
 \echo -n 'current client encoding: '\encoding
