@@ -22,14 +22,21 @@ CREATE TABLE calendar (
   description VARCHAR(254)
 );
 
+CREATE TABLE person_meeting (
+  id INTEGER PRIMARY KEY,
+  person INTEGER NOT NULL,
+  meeting INTEGER NOT NULL
+);
+
 CREATE TABLE meeting (
   id INTEGER PRIMARY KEY,
   name VARCHAR(64) NOT NULL,
   start TIMESTAMP NOT NULL,
   duration INTERVAL NOT NULL,
-  description VARCHAR(254),
-  location VARCHAR(54),
-  calendar INTEGER NOT NULL
+  description TEXT,
+  location TEXT,
+  calendar INTEGER NOT NULL,
+  scheduler INTEGER NOT NULL
 );
 
 CREATE TABLE task (
@@ -37,7 +44,8 @@ CREATE TABLE task (
   name VARCHAR(64) NOT NULL,
   due TIMESTAMP NOT NULL,
   finished BOOLEAN NOT NULL,
-  description VARCHAR(254),
+  description TEXT,
   calendar INTEGER NOT NULL,
+  assignee INTEGER NOT NULL,
   meeting INTEGER
 );

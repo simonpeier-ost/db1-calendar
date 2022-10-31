@@ -12,14 +12,15 @@ abstract Entry {
 class Meeting {
   name: string
   description: string
-  date: datetime
+  start: datetime
   location: string
-  duration: number
+  duration: interval
 }
 note top: duration in minutes
 
 class Task {
   name: string
+  due: datetime
   description: string
   finished: boolean
 }
@@ -42,7 +43,7 @@ Entry <|--l Meeting
 note on link #fa5252: disjoint, complete
 Entry <|--l Task
 note on link #fa5252: disjoint, complete
-Calendar "1" *-- "*" Entry
+Calendar "1" *-- "*" Entry : contains >
 Person "*" --l "1..*" Entry : attends >
 Person "*" --l "1" Entry : schedules >
 Person "*" -- "*" Calendar : subscribed to >
