@@ -19,7 +19,7 @@ CREATE TABLE person_calendar (
 CREATE TABLE calendar (
   id INTEGER PRIMARY KEY,
   name VARCHAR(64) NOT NULL,
-  description VARCHAR(254)
+  description TEXT
 );
 
 CREATE TABLE person_meeting (
