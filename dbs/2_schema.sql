@@ -4,9 +4,9 @@
 
 CREATE TABLE person (
   id INTEGER PRIMARY KEY,
-  firstname VARCHAR(64) NOT NULL,
-  lastname VARCHAR(64) NOT NULL,
-  email VARCHAR(64) NOT NULL UNIQUE,
+  firstname TEXT NOT NULL,
+  lastname TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE,
   birthdate DATE
 );
 
@@ -18,7 +18,7 @@ CREATE TABLE person_calendar (
 
 CREATE TABLE calendar (
   id INTEGER PRIMARY KEY,
-  name VARCHAR(64) NOT NULL,
+  name TEXT NOT NULL,
   description TEXT
 );
 
@@ -30,7 +30,7 @@ CREATE TABLE person_meeting (
 
 CREATE TABLE meeting (
   id INTEGER PRIMARY KEY,
-  name VARCHAR(64) NOT NULL,
+  name TEXT NOT NULL,
   start TIMESTAMP NOT NULL,
   duration INTERVAL NOT NULL,
   description TEXT,
@@ -41,7 +41,7 @@ CREATE TABLE meeting (
 
 CREATE TABLE task (
   id INTEGER PRIMARY KEY,
-  name VARCHAR(64) NOT NULL,
+  name TEXT NOT NULL,
   due TIMESTAMP NOT NULL,
   finished BOOLEAN NOT NULL,
   description TEXT,
