@@ -16,11 +16,10 @@ class Meeting {
   location: string
   duration: interval
 }
-note top: duration in minutes
 
 class Task {
   name: string
-  due: datetime
+  due: timestamp
   description: string
   finished: boolean
 }
@@ -37,6 +36,7 @@ class Person {
   birthdate: date
   / age: number
 }
+note top: can only participate in one meeting at a time
 
 Meeting "0..1" -- "*" Task : has >
 Entry <|--l Meeting
