@@ -5,31 +5,28 @@ hide empty methods
 skinparam nodesep 60
 'skinparam ranksep 80
 
-abstract Entry {
-
-}
-
-class Meeting {
+object Entry {
   name: string
   description: string
+}
+
+object Meeting {
   start: timestamp
   location: string
   duration: interval
 }
 
-class Task {
-  name: string
+object Task {
   due: timestamp
-  description: string
   finished: boolean
 }
 
-class Calendar {
+object Calendar {
   name: string
   description: string
 }
 
-class Person {
+object Person {
   firstname: string
   lastname: string
   email: string
