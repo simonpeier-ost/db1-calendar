@@ -90,20 +90,21 @@ HAVING count(pers.id) >= ALL (
 
 -- 3. Views
 -- 3.1.1 Schreiben Sie eine View, die mindestens drei Tabellen umfasst
--- Beschreibung:
-CREATE VIEW PersView (id, name, email, "number of meetings", "number of tasks") AS
-SELECT p.id, concat(p.firstname, ' ', p.lastname), p.email, count(m.id), count(t.assignee)
+-- Beschreibung: View zeigt alle Personen und jeweils die dazugehörige Anzahl Meetings
+CREATE VIEW PersView (id, name, email, "number of meetings") AS
+SELECT p.id, concat(p.firstname, ' ', p.lastname), p.email, count(m.id)
 FROM person p
-         JOIN person_meeting ON person_meeting.person = p.id
-         JOIN meeting m ON m.id = person_meeting.meeting
-         JOIN task t ON t.assignee = p.id
+         LEFT JOIN person_meeting ON person_meeting.person = p.id
+         LEFT JOIN meeting m ON m.id = person_meeting.meeting
 GROUP BY p.id, p.firstname, p.lastname, p.email
-ORDER BY p.firstname;
+ORDER BY p.id;
 
 -- 3.1.2 Schreiben sie eine normale Query welche diese View verwendet
+-- Beschreibung: Zeigt gesamte PersView an
 SELECT * FROM PersView;
 
 -- 3.2.1 Schreiben sie eine zweite View, die sich updaten lässt
+-- Beschreibung: View zeigt die Attribute "name", "description" und "finished" der Tasks
 CREATE VIEW Tasks (name, description, finished) as
 SELECT name, description, finished
 FROM task t;
