@@ -88,16 +88,27 @@ HAVING count(pers.id) >= ALL (
     GROUP BY pers.id
 );
 
--- 3. View
--- 3.1
-create view PersView (name, email, calendar, "number of meetings", "number of tasks") as
-    select p.name, p.email, cal.name, sum(m.name), sum(t.name)
-from person p
-    join person_calendar pcal on p.id = pcal.person
-    join calendar cal on cal.id = pcal.calendar
-    join meeting m on p.id = m.scheduler
-    join task t on p.id = t.assignee
-group by p.name, p.email, cal.name
-order by p.name;
+-- 3. Views
+-- 3.1.1 Schreiben Sie eine View, die mindestens drei Tabellen umfasst
+-- Beschreibung:
+CREATE VIEW PersView (name, email, calendar, "number of meetings", "number of tasks") AS
+    SELECT concat(p.firstname, ' ', p.lastname), p.email, cal.name, sum(m.name), sum(t.name)
+FROM person p
+    JOIN person_calendar pcal ON p.id = pcal.person
+    JOIN calendar cal ON cal.id = pcal.calendar
+    JOIN meeting m ON p.id = m.scheduler
+    JOIN task t ON p.id = t.assignee
+GROUP BY p.firstname, p.lastname, p.email, cal.name
+ORDER BY p.firstname;
 
-select * from PersView;
+-- 3.1.2 Schreiben sie eine normale Query welche diese View verwendet
+SELECT * FROM PersView;
+
+-- 3.2.1 Schreiben sie eine zweite View, die sich updaten lässt
+CREATE VIEW Tasks (name, description, finished) as
+SELECT name, description, finished
+FROM task t;
+
+UPDATE Tasks
+SET finished = true
+WHERE name = 'Vorlesung besuchen';
