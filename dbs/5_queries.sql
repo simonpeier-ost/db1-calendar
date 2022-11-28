@@ -91,14 +91,13 @@ HAVING count(pers.id) >= ALL (
 -- 3. Views
 -- 3.1.1 Schreiben Sie eine View, die mindestens drei Tabellen umfasst
 -- Beschreibung:
-CREATE VIEW PersView (name, email, calendar, "number of meetings", "number of tasks") AS
-    SELECT concat(p.firstname, ' ', p.lastname), p.email, cal.name, sum(m.name), sum(t.name)
+CREATE VIEW PersView (id, name, email, "number of meetings", "number of tasks") AS
+SELECT p.id, concat(p.firstname, ' ', p.lastname), p.email, count(m.id), count(t.assignee)
 FROM person p
-    JOIN person_calendar pcal ON p.id = pcal.person
-    JOIN calendar cal ON cal.id = pcal.calendar
-    JOIN meeting m ON p.id = m.scheduler
-    JOIN task t ON p.id = t.assignee
-GROUP BY p.firstname, p.lastname, p.email, cal.name
+         JOIN person_meeting ON person_meeting.person = p.id
+         JOIN meeting m ON m.id = person_meeting.meeting
+         JOIN task t ON t.assignee = p.id
+GROUP BY p.id, p.firstname, p.lastname, p.email
 ORDER BY p.firstname;
 
 -- 3.1.2 Schreiben sie eine normale Query welche diese View verwendet
